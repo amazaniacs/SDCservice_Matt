@@ -43,6 +43,19 @@ A create action from the above endpoint will POST new product review information
 }
 ```
 
+#### SUCCESS
+
+```
+201 Created
+```
+
+#### ERROR
+
+```
+400 Bad Request
+404 Not Found
+```
+
 
 ### READ
 
@@ -98,6 +111,19 @@ A read action from the above endpoint will GET review information for a specific
     }
   }
 }
+```
+
+#### SUCCESS
+
+```
+200 OK
+```
+
+#### ERROR
+
+```
+400 Bad Request
+404 Not Found
 ```
 
 
@@ -171,6 +197,19 @@ product.
 N/A
 ```
 
+#### SUCCESS
+
+```
+201 Created
+```
+
+#### ERROR
+
+```
+400 Bad Request
+404 Not Found
+```
+
 ### DELETE
 
 ```
@@ -186,4 +225,17 @@ A delete action from the above endpoint will DELETE a product from the dataset.
   id: 2,
   product_name: 'Destructive Paper Towels'
 }
+```
+
+#### SUCCESS
+
+```
+204 No Content
+```
+
+#### ERROR
+
+```
+400 Bad Request
+404 Not Found
 ```
