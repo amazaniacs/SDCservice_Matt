@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews should render correctly 1`] = `
+<styled.div>
+  <styled.div>
+    <Images />
+  </styled.div>
+  <styled.div>
+    <Mention />
+  </styled.div>
+  <styled.div>
+    <ReviewList />
+  </styled.div>
+  <styled.div>
+    <WriteReview />
+  </styled.div>
+</styled.div>
+`;

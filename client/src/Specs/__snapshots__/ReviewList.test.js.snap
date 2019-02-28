@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewList should render correctly 1`] = `
+<div>
+  <styled.button>
+    Showing 1-8 of 453 reviews
+  </styled.button>
+  <div>
+    <styled.select
+      name="reviews"
+    >
+      <option
+        value="Top Reviews"
+      >
+        Top Reviews
+      </option>
+      <option
+        value="Most recent"
+      >
+        Most recent
+      </option>
+    </styled.select>
+  </div>
+  <styled.div>
+    <div>
+      <styled.div>
+        <img
+          alt="avatar"
+          display="block"
+          height="30px"
+          max-width="100%"
+          src="https://s3.amazonaws.com/product-reviews-hr110/Icons/avatar.png"
+          width="30px"
+        />
+        Colleen Marquardt
+      </styled.div>
+      <styled.div>
+        <img
+          alt="stars"
+          height="25px"
+          src="https://s3.amazonaws.com/product-reviews-hr110/Icons/stars.png"
+        />
+        <styled.button>
+           Quod soluta quas ipsam autem dolor libero dolor qui repudiandae.
+        </styled.button>
+      </styled.div>
+      <div>
+        September 18, 2018
+      </div>
+      <p>
+        "Pariatur dolorum voluptate commodi iusto omnis alias sed enim rem. Quis omnis ipsam aliquid dolores. Tempore consequuntur dolor est excepturi. Cum et doloremque aut as Id voluptatem sint. Labore vero perferendis omnis voluptatem., "revtitleiew_": "Quod soluta quas ipsam autem dolor libero dolor qui repudiandae."
+      </p>
+      <div>
+        301 people found this helpful
+      </div>
+      <styled.div>
+        <styled.button>
+          Helpful
+        </styled.button>
+         |
+        <a
+          href="#top"
+          style={
+            Object {
+              "color": "#7a7a7a",
+              "textDecoration": "none",
+            }
+          }
+        >
+          Comment
+        </a>
+         |
+        <a
+          href="#top"
+          style={
+            Object {
+              "color": "#7a7a7a",
+              "textDecoration": "none",
+            }
+          }
+        >
+          Report abuse
+        </a>
+      </styled.div>
+    </div>
+  </styled.div>
+  <styled.div>
+    <styled.div>
+      <img
+        alt="avatar"
+        height="30px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/avatar.png"
+        width="30px"
+      />
+      Ms. Calista Buckridge
+    </styled.div>
+    <styled.div>
+      <img
+        alt="stars"
+        height="25px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/stars.png"
+      />
+      <styled.button>
+         Quod soluta quas ipsam autem dolor libero dolor qui repudiandae.
+      </styled.button>
+    </styled.div>
+    <div>
+      August 9, 2018
+    </div>
+    <p>
+      "Pariatur dolorum voluptate commodi iusto omnis alias sed enim rem. Quis omnis ipsam aliquid dolores. Tempore consequuntur dolor est excepturi. Cum et doloremque aut as Id voluptatem sint. Labore vero perferendis omnis voluptatem., "review_title": "Quod soluta quas ipsam autem dolor libero dolor qui repudiandae."
+    </p>
+    <div>
+      107 people found this helpful
+    </div>
+    <styled.div>
+      <styled.button>
+        Helpful
+      </styled.button>
+       |
+      <a
+        href="#top"
+        style={
+          Object {
+            "color": "#7a7a7a",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Comment
+      </a>
+       |
+      <a
+        href="#top"
+        style={
+          Object {
+            "color": "#7a7a7a",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Report abuse
+      </a>
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    <styled.div>
+      <img
+        alt="avatar"
+        height="30px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/avatar.png"
+        width="30px"
+      />
+      Reina Beer
+    </styled.div>
+    <styled.div>
+      <img
+        alt="stars"
+        height="25px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/stars.png"
+      />
+      <styled.button>
+         Quod soluta quas ipsam autem dolor libero dolor qui repudiandae.
+      </styled.button>
+    </styled.div>
+    <div>
+      September 18, 2018
+    </div>
+    <p>
+      "Pariatur dolorum voluptate commodi iusto omnis alias sed enim rem. Quis omnis ipsam aliquid dolores. Tempore consequuntur dolor est excepturi. Cum et doloremque aut as Id voluptatem sint. Labore vero perferendis omnis voluptatem., "review_title": "Quod soluta quas ipsam autem dolor libero dolor qui repudiandae."
+    </p>
+    <div>
+      888 people found this helpful
+    </div>
+    <styled.div>
+      <styled.button>
+        Helpful
+      </styled.button>
+       |
+      <a
+        href="#top"
+        style={
+          Object {
+            "color": "#7a7a7a",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Comment
+      </a>
+       |
+      <a
+        href="#top"
+        style={
+          Object {
+            "color": "#7a7a7a",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Report abuse
+      </a>
+    </styled.div>
+  </styled.div>
+</div>
+`;

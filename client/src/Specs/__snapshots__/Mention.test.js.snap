@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mention should render correctly 1`] = `
+<div>
+  <styled.button>
+    Read reviews that mention
+  </styled.button>
+  <styled.div>
+    <Buttons />
+    <Buttons />
+    <Buttons />
+    <Buttons />
+  </styled.div>
+  <styled.div>
+    <Buttons />
+    <Buttons />
+    <Buttons />
+    <Buttons />
+  </styled.div>
+  <styled.div>
+    <Buttons />
+    <Buttons />
+    <Buttons />
+    <Buttons />
+  </styled.div>
+</div>
+`;

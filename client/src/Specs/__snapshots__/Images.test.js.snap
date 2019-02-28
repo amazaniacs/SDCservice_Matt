@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Images should render correctly 1`] = `
+<div>
+  <styled.button>
+    Customer Images
+  </styled.button>
+  <div>
+    <styled.img
+      alt="food"
+      height="144"
+      src="http://lorempixel.com/640/480/food"
+      width="144"
+    />
+    <styled.img
+      alt="cat"
+      height="144"
+      src="http://lorempixel.com/640/480/cats"
+      width="144"
+    />
+    <styled.img
+      alt="sports"
+      height="144"
+      src="http://lorempixel.com/640/480/sports"
+      width="144"
+    />
+    <styled.img
+      alt="transportation"
+      height="144"
+      src="http://lorempixel.com/640/480/transport"
+      width="144"
+    />
+  </div>
+  <styled.a
+    href="#top"
+  >
+    See all customer images
+  </styled.a>
+</div>
+`;
