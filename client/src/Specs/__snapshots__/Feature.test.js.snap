@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feature should render correctly 1`] = `
+<styled.div>
+  <styled.button>
+    By feature
+  </styled.button>
+  <styled.div>
+    Sound quality
+    <styled.div>
+      <img
+        alt="stars"
+        height="25px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/stars.png"
+      />
+      <styled.div>
+        4.4
+      </styled.div>
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    Battery life
+    <styled.div>
+      <img
+        alt="stars"
+        height="25px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/stars.png"
+      />
+      <styled.div>
+        4.1
+      </styled.div>
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    Noise cancellation
+    <styled.div>
+      <img
+        alt="stars"
+        height="25px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/stars.png"
+      />
+      <styled.div>
+        4.1
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WriteReview should render correctly 1`] = `
+<div>
+  <styled.div>
+    See all 453 reviews
+  </styled.div>
+  <styled.button>
+    Write a customer review
+  </styled.button>
+</div>
+`;

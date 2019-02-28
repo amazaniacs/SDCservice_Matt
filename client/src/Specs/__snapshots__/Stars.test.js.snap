@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stars should render correctly 1`] = `
+<styled.div>
+  <styled.button>
+    453 customer reviews
+  </styled.button>
+  <div />
+  <styled.div>
+    <img
+      alt="stars"
+      height="25px"
+      src="https://s3.amazonaws.com/product-reviews-hr110/Icons/stars.png"
+    />
+       
+    <styled.div>
+      4.2 out of 5 stars
+      <img
+        alt="down"
+        height="10px"
+        src="https://s3.amazonaws.com/product-reviews-hr110/Icons/downarrow.png"
+      />
+      <styled.div>
+        Amazon calculates a product’s star ratings based on a machine learned model instead of a raw data average. The model takes into account factors including the age of a rating, whether the ratings are from verified purchasers, and factors that establish reviewer trustworthiness.
+      </styled.div>
+    </styled.div>
+  </styled.div>
+  <div>
+    <styled.a
+      href="#top"
+    >
+      5 star
+          
+      <styled.div>
+        <styled.div />
+      </styled.div>
+    </styled.a>
+    <styled.div>
+      20%
+    </styled.div>
+  </div>
+  <div>
+    <styled.a
+      href="#top"
+    >
+      4 star
+          
+      <styled.div>
+        <styled.div />
+      </styled.div>
+    </styled.a>
+    <styled.div>
+      20%
+    </styled.div>
+  </div>
+  <div>
+    <styled.a
+      href="#top"
+    >
+      3 star
+          
+      <styled.div>
+        <styled.div />
+      </styled.div>
+    </styled.a>
+    <styled.div>
+      20%
+    </styled.div>
+  </div>
+  <div>
+    <styled.a
+      href="#top"
+    >
+      2 star
+          
+      <styled.div>
+        <styled.div />
+      </styled.div>
+    </styled.a>
+    <styled.div>
+      20%
+    </styled.div>
+  </div>
+  <div>
+    <styled.a
+      href="#top"
+    >
+      1 star
+          
+      <styled.div>
+        <styled.div />
+      </styled.div>
+    </styled.a>
+    <styled.div>
+      20%
+    </styled.div>
+  </div>
+</styled.div>
+`;
