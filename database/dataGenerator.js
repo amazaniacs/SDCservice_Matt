@@ -11,9 +11,7 @@ const fs = require('fs');
 // const myEmitter = new MyEmitter();
 // myEmitter.on('event', () => {
 //   console.log('an event occurred!');
-// });
-
-
+// });\
 
 const data = {
   category: ['shoes', 'electronics', 'apparel', 'auto', 'health', 'lifestyle', 'tech', 'furniture',
@@ -40,7 +38,7 @@ const categories = [
   'board games',
   'food',
   'toys',
-  'jewelery'
+  'jewelery',
 ];
 
 // const generatedData = [];
@@ -49,12 +47,11 @@ const categories = [
 // file.write('[');
 const number = 10000000 + 1;
 
-const writeNTimes = (file, number, encoding, callback) => {
+const writeNTimes = (file, num, encoding, callback) => {
   let i = 1;
-  
   const write = () => {
     let statusGood = true;
-    while (i <= number && statusGood) {
+    while (i <= num && statusGood) {
       const product_review = {
         id: i,
         product_name: `Amazon Product ${i}`,
@@ -67,10 +64,10 @@ const writeNTimes = (file, number, encoding, callback) => {
         no_four_star_reviews: 0,
         no_five_star_reviews: 0,
         customer_images: ['string1', 'string2'],
-        reviews_by_feature: [{key: 'value'}, {key: 'value'}],
-        reviews_by_interests: [{key: 'value'}, {key: 'value'}],
-        review_info: []
-      }
+        reviews_by_feature: [{ key: 'value' }, { key: 'value' }],
+        reviews_by_interests: [{ key: 'value' }, { key: 'value' }],
+        review_info: [],
+      };
       for (let j = 1; j <= Math.floor(Math.random() * 10) + 1; j += 1) {
         const singleReview = {
           product_id: product_review.id,
@@ -103,34 +100,34 @@ const writeNTimes = (file, number, encoding, callback) => {
         if (singleReview.review_rating === 5) {
           product_review.no_five_star_reviews += 1;
         }
-        product_review.rating = product_review.rating + singleReview.review_rating;
+        product_review.rating += singleReview.review_rating;
       }
       const avgScore = product_review.rating / product_review.total_reviews;
       product_review.rating = avgScore.toFixed(1);
 
-      if (i === number) {
+      if (i === num) {
         file.write(JSON.stringify(product_review), encoding, callback);
       } else {
-        statusGood = file.write(JSON.stringify(product_review) + ',', encoding);
+        statusGood = file.write(`${JSON.stringify(product_review)},`, encoding);
       }
-      i ++;
+      i += 1;
     }
-    if (i < number) {
+    if (i < num) {
       file.once('drain', write);
     }
-  }
+  };
   write();
-}
+};
 
-const file = fs.createWriteStream('./data.json', {enconding: 'utf8'});
+const file = fs.createWriteStream('./data.json', { enconding: 'utf8' });
 
 writeNTimes(file, number, 'utf8', (err) => {
   if (err) {
-    console.log('something bad happened' + err);
+    console.log(`something bad happened, ${err}`);
   } else {
     console.log('we all good!');
   }
-})
+});
 
 // file.end(']');
 console.log('FILE IS WRITTEN');
@@ -191,7 +188,6 @@ console.log('FILE IS WRITTEN');
 //   // generatedData.push(product_review);
 
 //   // do write and drain here
-  
 //   const write = () => {
 //     let goodStatus = file.write(JSON.stringify(product_review) + ',');
 //     // console.log(goodStatus);
@@ -205,5 +201,3 @@ console.log('FILE IS WRITTEN');
 //   }
 //   write();
 // }
-
-
