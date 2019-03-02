@@ -19,7 +19,7 @@ const port = 3008;
 app.use(express.static(`${__dirname}/../client/dist`));
 
 // api will also deliver the static files. product/:id serves my data
-app.get('/api/product/:id', (req, res) => {
+app.get('/api/productreview/:id', (req, res) => {
   const id = req.params.id;
   grabProduct(id, (err, num) => {
     if (err) {
@@ -27,6 +27,28 @@ app.get('/api/product/:id', (req, res) => {
     }
     res.status(200).send(num);
   });
+});
+
+app.post('/api/productreview', (req, res) => {
+  // POST a new product with review information
+});
+
+app.put('/api/productreview/:id', (req, res) => {
+  // PUT a new review for the specified product
+});
+
+app.put('/api/productreview/:id/update/:id', (req, res) => {
+  // PUT changed information into a specified review
+  // for a specified product
+});
+
+app.put('/api/productreview/:id/remove/:id', (req, res) => {
+  // Use PUT to remove a specified review from a 
+  // specified product
+});
+
+app.delete('/api/productreview/:id', (req, res) => {
+  // DELETE a specified product/review information
 });
 
 // the index.html
