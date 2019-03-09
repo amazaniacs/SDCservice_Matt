@@ -2,6 +2,8 @@
 /* eslint-disable camelcase */
 // eslint-disable-next-line prefer-destructuring
 // CURRENTLY OPTIMIZED FOR MONGODB
+// CURRENTLY BAD!!!! DATA IS GENERATED, BUT DUE TO BAD GIT USE
+// THIS FILE IS SEVERELY OUT OF DATE!!!
 const faker = require('faker');
 const fs = require('fs');
 // const EventEmitter = require('events');

@@ -1,10 +1,17 @@
 /* eslint-disable prefer-destructuring */
+require('newrelic');
 const express = require('express');
 const compression = require('compression');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const grabProduct = require('../database/index.js').grabProduct;
+const deleteProduct = require('../database/index.js').deleteProduct;
+const deleteReviews = require('../database/index.js').deleteReviews;
+const deleteReview = require('../database/index.js').deleteReview;
+const editReview = require('../database/index.js').editReview;
+const postProduct = require('../database/index.js').postProduct;
+const postReview = require('../database/index.js').postReview;
 
 const app = express();
 
@@ -20,8 +27,9 @@ app.use(express.static(`${__dirname}/../client/dist`));
 
 // api will also deliver the static files. product/:id serves my data
 app.get('/api/productreview/:id', (req, res) => {
+  // GET product info and its reviews
   const id = req.params.id;
-  grabProduct(id, (err, num) => {
+  grabProduct(id, null, (err, num) => {
     if (err) {
       res.status(404).send();
     }
@@ -30,25 +38,63 @@ app.get('/api/productreview/:id', (req, res) => {
 });
 
 app.post('/api/productreview', (req, res) => {
-  // POST a new product with review information
+  // POST a new product
+  postProduct(req.body, (err) => {
+    if (err) {
+      res.status(400).send();
+    }
+    res.status(201).send();
+  })
 });
 
-app.put('/api/productreview/:id', (req, res) => {
-  // PUT a new review for the specified product
+app.post('/api/productreview/:id', (req, res) => {
+  // POST a new review for the specified product
+  const id = req.params.id;
+  postReview(id, req.body, (err) => {
+    if (err) {
+      res.status(400).send();
+    }
+    res.status(201).send();
+  })
 });
 
-app.put('/api/productreview/:id/update/:id', (req, res) => {
+app.put('/api/review/:id', (req, res) => {
   // PUT changed information into a specified review
-  // for a specified product
+  const id = req.params.id;
+  editReview(id, req.body, (err) => {
+    if (err) {
+      res.status(400).send();
+    }
+    res.status(201).send();
+  })
 });
 
-app.put('/api/productreview/:id/remove/:id', (req, res) => {
-  // Use PUT to remove a specified review from a 
-  // specified product
+app.delete('/api/review/:id', (req, res) => {
+  // Use DELETE to remove a specified review 
+  const id = req.params.id;
+  deleteReview(id, (err) => {
+    if (err) {
+      res.status(400).send();
+    }
+    res.status(204).send();
+  });
 });
 
 app.delete('/api/productreview/:id', (req, res) => {
-  // DELETE a specified product/review information
+  // DELETE a specified product and its reviews
+  const id = req.params.id;
+  deleteProduct(id, (err) => {
+    if (err) {
+      res.status(400).send();
+    }
+    res.status(204).send();
+  });
+  deleteReviews(id, (err) => {
+    if (err) {
+      res.status(400).send();
+    }
+    res.status(204).send();
+  });
 });
 
 // the index.html
