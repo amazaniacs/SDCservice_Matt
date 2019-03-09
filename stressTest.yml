@@ -1,0 +1,19 @@
+config:
+  target: "http://localhost:3008"
+  phases:
+    - duration: 180
+      arrivalRate: 500
+scenarios:
+  - flow:
+    - get:
+        url: "/api/productreview/{{ $randomNumber(1, 10000001) }}"
+    - post:
+        url: "/api/productreview/{{ $randomNumber(1, 10000001) }}"
+        json: 
+          review_rating: 1
+          review: "A review"
+          review_title: "A review title"
+          reviewer: "Matt"
+          verified_purchase: false
+          helpful_counter: 0
+          created_at: "a date"
