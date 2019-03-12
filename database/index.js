@@ -154,17 +154,17 @@
 
 
 // POSTGRESQL
-const { Client } = require('pg');
+const { Client, Pool } = require('pg');
 const fs = require('fs');
 require('dotenv').config({ path: '../.env' });
 
-const client = new Client({
+const pool = new Pool({
   database: 'postgres'
 });
 
-client.connect();
+// pool.connect();
 
-// client.query(`COPY schema.product_info FROM '/Users/doodoodoom/Desktop/SDCservice_Matt/database/data.csv' DELIMITERS ',' CSV;`, (err, res) => {
+// pool.query(`COPY schema.product_info FROM '/Users/doodoodoom/Desktop/SDCservice_Matt/database/data.csv' DELIMITERS ',' CSV;`, (err, res) => {
 //   if (err) {
 //     console.log(`FAIL; ${err}`);
 //   } else {
@@ -172,7 +172,7 @@ client.connect();
 //   }
 // });
 
-// client.query(`COPY schema.review_info FROM '/Users/doodoodoom/Desktop/SDCservice_Matt/database/reviews.csv' DELIMITERS ',' CSV;`, (err, res) => {
+// pool.query(`COPY schema.review_info FROM '/Users/doodoodoom/Desktop/SDCservice_Matt/database/reviews.csv' DELIMITERS ',' CSV;`, (err, res) => {
 //   if (err) {
 //     console.log(`FAIL; ${err}`);
 //   } else {
@@ -182,7 +182,7 @@ client.connect();
 
 function grabProduct(productid, productname, callback) {
   if (productid !== null && productname !== null) {
-    client.query(`SELECT * FROM schema.product_info p, schema.review_info r 
+    pool.query(`SELECT * FROM schema.product_info p, schema.review_info r 
     WHERE p.id = r.product_id AND p.id = ${productid}
     AND p.product_name = r.product_name AND p.product_name = '${productname}'`, (err, res) => {
       if (err) {
@@ -191,7 +191,7 @@ function grabProduct(productid, productname, callback) {
       callback(null, res.rows);
     });
   } else if (productid !== null) {
-    client.query(`SELECT * FROM schema.product_info p, schema.review_info r 
+    pool.query(`SELECT * FROM schema.product_info p, schema.review_info r 
     WHERE p.id = r.product_id AND p.id = ${productid}`, (err, res) => {
       if (err) {
         callback(err);
@@ -199,7 +199,7 @@ function grabProduct(productid, productname, callback) {
       callback(null, res.rows);
     });
   } else if (productname !== null) {
-    client.query(`SELECT * FROM schema.product_info p, schema.review_info r 
+    pool.query(`SELECT * FROM schema.product_info p, schema.review_info r 
     WHERE p.product_name = r.product_name AND p.product_name = '${productname}'`, (err, res) => {
       if (err) {
         callback(err);
@@ -210,7 +210,7 @@ function grabProduct(productid, productname, callback) {
 }
 
 function postProduct(productobj, callback) {
-  client.query(`INSERT INTO schema.product_info(product_name, category, total_reviews, rating,
+  pool.query(`INSERT INTO schema.product_info(product_name, category, total_reviews, rating,
     no_one_star_reviews, no_two_star_reviews, no_three_star_reviews, no_four_star_reviews, 
     no_five_star_reviews) VALUES ('${productobj.product_name}', '${productobj.category}', 
     ${productobj.total_reviews}, '${productobj.rating}', ${productobj.no_one_star_reviews}, 
@@ -224,7 +224,7 @@ function postProduct(productobj, callback) {
 }
 
 function postReview(id, reviewobj, callback) {
-  client.query(`INSERT INTO schema.review_info(review_rating, review, review_title, reviewer,
+  pool.query(`INSERT INTO schema.review_info(review_rating, review, review_title, reviewer,
     verified_purchase, helpful_counter, created_at, product_id, product_name, 
     category) VALUES (${reviewobj.review_rating}, '${reviewobj.review}', 
     '${reviewobj.review_title}', '${reviewobj.reviewer}', ${reviewobj.verified_purchase}, 
@@ -240,7 +240,7 @@ function postReview(id, reviewobj, callback) {
 }
 
 function editReview(id, reviewobj, callback) {
-  client.query(`UPDATE schema.review_info SET review_rating = '${reviewobj.review_rating}',
+  pool.query(`UPDATE schema.review_info SET review_rating = '${reviewobj.review_rating}',
     review = '${reviewobj.review}', review_title = '${reviewobj.review_title}', 
     reviewer = '${reviewobj.reviewer}' WHERE id = ${id}`, (err) => {
     if (err) {
@@ -251,7 +251,7 @@ function editReview(id, reviewobj, callback) {
 }
 
 function deleteProduct(productid, callback) {
-  client.query(`DELETE FROM schema.product_info p WHERE p.id = ${productid}`, (err) => {
+  pool.query(`DELETE FROM schema.product_info p WHERE p.id = ${productid}`, (err) => {
     if (err) {
       callback(err);
     }
@@ -260,7 +260,7 @@ function deleteProduct(productid, callback) {
 }
 
 function deleteReviews(productid, callback) {
-  client.query(`DELETE FROM schema.review_info r WHERE r.product_id = ${productid}`, (err) => {
+  pool.query(`DELETE FROM schema.review_info r WHERE r.product_id = ${productid}`, (err) => {
     if (err) {
       callback(err);
     }
@@ -269,7 +269,7 @@ function deleteReviews(productid, callback) {
 }
 
 function deleteReview(reviewid, callback) {
-  client.query(`DELETE FROM schema.review_info r WHERE r.id = ${reviewid}`, (err) => {
+  pool.query(`DELETE FROM schema.review_info r WHERE r.id = ${reviewid}`, (err) => {
     if (err) {
       callback(err);
     }
