@@ -51,3 +51,8 @@ CREATE INDEX product_info_name_index ON schema.product_info(product_name);
 CREATE INDEX review_info_id_index ON schema.review_info(id);
 CREATE INDEX review_info_productid_index ON schema.review_info(product_id);
 CREATE INDEX review_info_name_index ON schema.review_info(product_name);
+
+COPY schema.product_info FROM '/Users/doodoodoom/Desktop/SDCservice_Matt/database/data.csv' DELIMITERS ',' CSV;
+COPY schema.review_info FROM '/Users/doodoodoom/Desktop/SDCservice_Matt/database/reviews.csv' DELIMITERS ',' CSV;
+
+SELECT setval('schema.review_info_id_seq', (SELECT MAX(id) FROM schema.review_info)+1);
