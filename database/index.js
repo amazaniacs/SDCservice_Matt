@@ -157,10 +157,9 @@
 const { Client, Pool } = require('pg');
 const fs = require('fs');
 require('dotenv').config({ path: '../.env' });
+const config = require('./config.js');
 
-const pool = new Pool({
-  database: 'postgres'
-});
+const pool = new Pool(config);
 
 // pool.connect();
 
